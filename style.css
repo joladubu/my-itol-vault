@@ -1,0 +1,395 @@
+
+/* ========================================
+   1. DESIGN VARIABLES
+======================================== */
+
+:root {
+  --background: #f5f5f3;
+  --surface: #ffffff;
+  --text: #222222;
+  --muted: #777777;
+  --border: #e8e8e6;
+  --accent: #111111;
+}
+
+/* ========================================
+   2. GLOBAL RESET
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+/* ========================================
+   3. BASIC ELEMENTS
+======================================== */
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+
+
+/* ========================================
+   4. HEADER AND NAVIGATION
+======================================== */
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 7%;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+nav a {
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  color: var(--text);
+}
+
+nav a[aria-current="page"] {
+  font-weight: 700;
+}
+
+
+/* ========================================
+   5. PAGE LAYOUT AND TYPOGRAPHY
+======================================== */
+
+.container {
+  width: min(1100px, 86%);
+  margin: 56px auto;
+}
+
+.intro {
+  max-width: 620px;
+  margin-bottom: 44px;
+}
+
+.eyebrow {
+  color: var(--muted);
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.intro h1 {
+  margin: 12px 0;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+}
+
+.intro > p:last-child {
+  color: var(--muted);
+  max-width: 540px;
+}
+
+h2 {
+  line-height: 1.3;
+}
+
+p {
+  overflow-wrap: anywhere;
+}
+
+
+
+/* ========================================
+   6. JOURNAL ENTRIES AND CARDS
+======================================== */
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.section-heading a {
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.section-heading a:hover {
+  color: var(--text);
+}
+
+.entries-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.entry-card {
+  min-width: 0;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.entry-card h3 {
+  margin: 10px 0;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.entry-date {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.68rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.entry-card .entry-summary {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+
+.entry-card:first-child {
+  grid-column: span 2;
+}
+
+
+
+/* ========================================
+   7. FORM AND BUTTONS
+======================================== */
+
+#entryForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field label {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+#entryTitle,
+#entryBody {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+
+#entryTitle:focus,
+#entryBody:focus {
+  outline: 2px solid #888888;
+  outline-offset: 2px;
+}
+
+#entryBody {
+  min-height: 240px;
+  resize: vertical;
+  line-height: 1.8;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.primary-button {
+  display: inline-block;
+  padding: 12px 20px;
+  border: 1px solid var(--accent);
+  border-radius: 5px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.9rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.primary-button:hover {
+  background: #333333;
+}
+
+.secondary-button {
+  display: inline-block;
+  padding: 12px 20px;
+  color: var(--text);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.secondary-button:hover {
+  text-decoration: underline;
+}
+
+#formMessage {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+
+
+/* ========================================
+   8. INSPIRATION SECTION
+======================================== */
+
+.inspiration {
+  margin-top: 32px;
+  padding: 36px 20px;
+  border: 1px dashed #d9d9d6;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.inspiration-icon {
+  font-size: 1.5rem;
+}
+
+.inspiration h2 {
+  margin-bottom: 4px;
+}
+
+.inspiration > p:not(.inspiration-icon) {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.inspiration a {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+
+
+/* ========================================
+   9. FOOTER
+======================================== */
+
+.site-footer {
+  margin-top: 70px;
+  padding: 24px 7%;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+
+
+/* ========================================
+   10. RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 800px) {
+  .entries-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .entry-card:first-child {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 550px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    gap: 16px;
+  }
+
+  .container {
+    width: 90%;
+    margin-top: 36px;
+  }
+
+  .entries-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .entry-card:first-child {
+    grid-column: auto;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .form-actions {
+    align-items: stretch;
+    flex-direction: column-reverse;
+  }
+
+  .form-actions .primary-button,
+  .form-actions .secondary-button {
+    text-align: center;
+  }
+
+  .inspiration {
+    padding: 28px 16px;
+  }
+}
