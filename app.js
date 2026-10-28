@@ -5,6 +5,16 @@ if (entryForm) {
   const titleInput = document.querySelector('#entryTitle');
   const bodyInput = document.querySelector('#entryBody');
   const formMessage = document.querySelector('#formMessage');
+  const entryDate = document.querySelector('#entryDate');
+
+  if (entryDate) {
+    entryDate.textContent = new Date().toLocaleDateString('en-GB', {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    });
+  }
 
   entryForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -103,4 +113,20 @@ const allEntries = document.querySelector("#allEntries");
 
 if (allEntries) {
   renderEntries(allEntries, sortedEntries);
+}
+
+
+const menuToggle = document.querySelector('#menuToggle');
+const mainNavigation = document.querySelector('#mainNavigation');
+
+if (menuToggle && mainNavigation) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = mainNavigation.classList.toggle('is-open');
+
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.setAttribute(
+      'aria-label',
+      isOpen ? 'Close navigation menu' : 'Open navigation menu',
+    );
+  });
 }

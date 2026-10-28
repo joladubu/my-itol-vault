@@ -10,15 +10,30 @@
   <script src="app.js" defer></script>
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="index.html">ITOL Vault</a>
 
-    <nav aria-label="Main navigation">
-      <a href="index.html">Journal</a>
-      <a href="vault.html" aria-current="page">Vault</a>
-      <a href="new-entry.html">New Entry</a>
-    </nav>
-  </header>
+<header class="site-header">
+  <a class="brand" href="index.html">ITOL Vault</a>
+
+  <button
+    class="menu-toggle"
+    id="menuToggle"
+    type="button"
+    aria-label="Open navigation menu"
+    aria-expanded="false"
+    aria-controls="mainNavigation"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav id="mainNavigation" aria-label="Main navigation">
+    <a href="index.html">Journal</a>
+    <a href="vault.html" aria-current="page">Vault</a>
+    <a href="new-entry.html">New Entry</a>
+  </nav>
+</header>
+
 
   <main class="container">
     <section class="intro">
